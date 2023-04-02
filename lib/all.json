@@ -1,0 +1,431 @@
+{
+	"info": {
+		"_postman_id": "f43ca590-caeb-4543-8537-8bcc3e06a657",
+		"name": "QIT Test Live",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23529488"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://test.qit.company/api/user/register?email=user@example.test&name=test user&password=password&password_confirmation=password",
+							"protocol": "https",
+							"host": [
+								"test",
+								"qit",
+								"company"
+							],
+							"path": [
+								"api",
+								"user",
+								"register"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "user@example.test",
+									"description": "The user email address needed to login. (Required)"
+								},
+								{
+									"key": "name",
+									"value": "test user",
+									"description": "The user name. (Required)"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"description": "The user password used to login. (Required)"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "password",
+									"description": "Password confirmation. (Required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://test.qit.company/api/user/login?email=user@example.test&password=password",
+							"protocol": "https",
+							"host": [
+								"test",
+								"qit",
+								"company"
+							],
+							"path": [
+								"api",
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "user@example.test",
+									"description": "The user registered email. (Required)"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"description": "The user password. (Required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|RsKJl72cAVsN53GQrxjk6GjfnIU5msHA60dIdH50w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://test.qit.company/api/user/check",
+							"protocol": "https",
+							"host": [
+								"test",
+								"qit",
+								"company"
+							],
+							"path": [
+								"api",
+								"user",
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|RKJl72cAVsN53GQrxjk6GjfnIU5msHA60dIdH50w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://test.qit.company/api/user/logout",
+							"protocol": "https",
+							"host": [
+								"test",
+								"qit",
+								"company"
+							],
+							"path": [
+								"api",
+								"user",
+								"logout"
+							],
+							"query": [
+								{
+									"key": "all",
+									"value": "1",
+									"description": "Destroys all access tokens for user.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://test.qit.company/api/product?perpage=10",
+							"protocol": "https",
+							"host": [
+								"test",
+								"qit",
+								"company"
+							],
+							"path": [
+								"api",
+								"product"
+							],
+							"query": [
+								{
+									"key": "perpage",
+									"value": "10",
+									"description": "Number of products per page, used for pagination. (Required) (Max 20)"
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"description": "The page number of pagination.",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "vero",
+									"description": "Keyword used for search.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://test.qit.company/api/product/1",
+							"protocol": "https",
+							"host": [
+								"test",
+								"qit",
+								"company"
+							],
+							"path": [
+								"api",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Item",
+					"item": [
+						{
+							"name": "Store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "2|1yZ6wCg1zQsV8qdvOr38AghlxoKakXXlZWLDL7nf",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://test.qit.company/api/cart/item?product_id=1&quantity=3",
+									"protocol": "https",
+									"host": [
+										"test",
+										"qit",
+										"company"
+									],
+									"path": [
+										"api",
+										"cart",
+										"item"
+									],
+									"query": [
+										{
+											"key": "product_id",
+											"value": "1",
+											"description": "The id of the product to be added. (Required)"
+										},
+										{
+											"key": "quantity",
+											"value": "3",
+											"description": "The quantity of the product to be added. (Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "2|1yZ6wCg1zQsV8qdvOr38AghlxoKakXXlZWLDL7nf",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://test.qit.company/api/cart/item?product_id=1",
+									"protocol": "https",
+									"host": [
+										"test",
+										"qit",
+										"company"
+									],
+									"path": [
+										"api",
+										"cart",
+										"item"
+									],
+									"query": [
+										{
+											"key": "product_id",
+											"value": "1",
+											"description": "The id of the product to be removed. (Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|6U8fTAvKWr0ha0A0gncBLUPVENQjwrzf83JCCZLB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://test.qit.company/api/cart",
+							"protocol": "https",
+							"host": [
+								"test",
+								"qit",
+								"company"
+							],
+							"path": [
+								"api",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
+
